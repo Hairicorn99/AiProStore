@@ -6,7 +6,7 @@ using Volo.Abp.Http.Client;
 using Volo.Abp.Http.Client.IdentityModel;
 using Volo.Abp.Modularity;
 
-namespace AiProStore.HttpApi.Client.ConsoleTestApp;
+namespace AiProStore.Admin.HttpApi.Client.ConsoleTestApp;
 
 [DependsOn(
     typeof(AbpAutofacModule),

@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Modularity;
 
-namespace AiProStore;
+namespace AiProStore.Admin;
 
 [DependsOn(
     typeof(AiProStoreApplicationModule),
