@@ -9,7 +9,7 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
-namespace AiProStore;
+namespace AiProStore.Admin;
 
 [DependsOn(
     typeof(AiProStoreApplicationContractsModule),

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AiProStore.HttpApi.Client.ConsoleTestApp;
+namespace AiProStore.Admin.HttpApi.Client.ConsoleTestApp;
 
 class Program
 {
