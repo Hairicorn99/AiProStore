@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.Attributes
+namespace AiProStore.Attributes
 {
     public class ProductAttributeConfiguration : IEntityTypeConfiguration<ProductAttribute>
     {

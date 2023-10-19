@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.Promotions
+namespace AiProStore.Promotions
 {
     public class PromotionConfiguration : IEntityTypeConfiguration<Promotion>
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.InventoryTickets
+namespace AiProStore.InventoryTickets
 {
     public class InventoryTicketItemConfiguration : IEntityTypeConfiguration<InventoryTicketItem>
     {

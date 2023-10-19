@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.Orders
+namespace AiProStore.Orders
 {
     public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
