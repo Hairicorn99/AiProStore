@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.ProductCategories
+namespace AiProStore.ProductCategories
 {
     public class ProductCategoryConfiguration : IEntityTypeConfiguration<ProductCategory>
     {

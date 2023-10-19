@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.Inventories
+namespace AiProStore.Inventories
 {
     public class InventoryConfiguration : IEntityTypeConfiguration<Inventory>
     {

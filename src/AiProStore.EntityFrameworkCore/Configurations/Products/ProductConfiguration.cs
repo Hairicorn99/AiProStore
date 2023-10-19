@@ -1,4 +1,4 @@
-﻿using AiProStore.Manufacturers;
+﻿using AiProStore.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Manufacturers
+namespace AiProStore.Products
 {
-    public class ManufacturerConfiguration : IEntityTypeConfiguration<Manufacturer>
+    public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Manufacturer> builder)
+        public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable(AiProStoreConsts.DbTablePrefix + "Manufacturers");
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "Products");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name)
                 .HasMaxLength(50)
@@ -29,9 +29,17 @@ namespace AiProStore.Manufacturers
                 .IsUnicode(false)
                 .IsRequired();
 
-            builder.Property(x => x.CoverPicture)
+            builder.Property(x => x.SKU)
+               .HasMaxLength(50)
+               .IsUnicode(false)
+               .IsRequired();
+
+
+            builder.Property(x => x.ThumbnailPicture)
                .HasMaxLength(250);
 
+            builder.Property(x => x.SeoMetaDescription)
+             .HasMaxLength(250);
         }
     }
 }

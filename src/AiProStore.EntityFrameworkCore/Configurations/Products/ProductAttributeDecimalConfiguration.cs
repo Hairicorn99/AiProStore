@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AiProStore.Products
 {
-    public class ProductAttributeDateTimeConfiguration : IEntityTypeConfiguration<ProductAttributeDateTime>
+    public class ProductAttributeDecimalConfiguration : IEntityTypeConfiguration<ProductAttributeDecimal>
     {
-        public void Configure(EntityTypeBuilder<ProductAttributeDateTime> builder)
+        public void Configure(EntityTypeBuilder<ProductAttributeDecimal> builder)
         {
             builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeDateTimes");
             builder.HasKey(x => x.Id);

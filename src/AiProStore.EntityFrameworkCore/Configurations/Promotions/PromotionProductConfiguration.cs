@@ -1,12 +1,20 @@
-﻿using System;
+﻿using AiProStore.Promotions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AiProStore.Configurations.Promotions
+namespace AiProStore.Promotions
 {
-    internal class PromotionProductConfiguration
+    public class PromotionProductConfiguration : IEntityTypeConfiguration<PromotionProduct>
     {
+        public void Configure(EntityTypeBuilder<PromotionProduct> builder)
+        {
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "PromotionProducts");
+            builder.HasKey(x => x.Id);
+        }
     }
 }
