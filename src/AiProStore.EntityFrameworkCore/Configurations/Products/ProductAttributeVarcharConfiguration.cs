@@ -13,7 +13,7 @@ namespace AiProStore.Products
     {
         public void Configure(EntityTypeBuilder<ProductAttributeVarchar> builder)
         {
-            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeDateTimes");
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeVarchars");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Value).HasMaxLength(500);
         }

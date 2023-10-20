@@ -1,5 +1,6 @@
 ﻿using AiProStore.EntityFrameworkCore;
 using Volo.Abp.Autofac;
+using Volo.Abp.BackgroundJobs;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Modularity;
@@ -16,6 +17,6 @@ public class AiProStoreDbMigratorModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "AiProStore:"; });
+        Configure<AbpBackgroundJobOptions>(options => options.IsJobExecutionEnabled = false);
     }
 }
