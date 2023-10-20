@@ -21,4 +21,3 @@ namespace AiProStore.Promotions
         public bool IsActive { get; set; }
     }
 }
-}

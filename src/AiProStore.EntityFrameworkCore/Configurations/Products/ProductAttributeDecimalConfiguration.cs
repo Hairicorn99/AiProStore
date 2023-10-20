@@ -12,7 +12,7 @@ namespace AiProStore.Products
     {
         public void Configure(EntityTypeBuilder<ProductAttributeDecimal> builder)
         {
-            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeDateTimes");
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeDecimal");
             builder.HasKey(x => x.Id);
         }
     }

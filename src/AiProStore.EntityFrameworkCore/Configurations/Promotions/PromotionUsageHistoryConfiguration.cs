@@ -13,7 +13,7 @@ namespace AiProStore.Promotions
     {
         public void Configure(EntityTypeBuilder<PromotionUsageHistory> builder)
         {
-            builder.ToTable(AiProStoreConsts.DbTablePrefix + "PromotionProducts");
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "PromotionUsageHistories");
             builder.HasKey(x => x.Id);
         }
     }

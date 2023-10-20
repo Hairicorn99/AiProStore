@@ -7,6 +7,7 @@ using AiProStore.Data;
 using Serilog;
 using Volo.Abp;
 using Volo.Abp.Data;
+using AiProStore.Seeding;
 
 namespace AiProStore.DbMigrator;
 
@@ -37,6 +38,11 @@ public class DbMigratorHostedService : IHostedService
                 .ServiceProvider
                 .GetRequiredService<AiProStoreDbMigrationService>()
                 .MigrateAsync();
+
+            await application
+                .ServiceProvider
+                .GetRequiredService<IdentityDataSeeder>()
+                .SeedAsync("Adminhaidz@gmail.com","123456aA@");
 
             await application.ShutdownAsync();
 

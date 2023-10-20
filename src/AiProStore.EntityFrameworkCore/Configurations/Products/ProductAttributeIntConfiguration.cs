@@ -1,6 +1,4 @@
-﻿using AiProStore.ProductAttributes;
-using AiProStore.Products;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -14,7 +12,7 @@ namespace AiProStore.Products
     {
         public void Configure(EntityTypeBuilder<ProductAttributeInt> builder)
         {
-            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeDateTimes");
+            builder.ToTable(AiProStoreConsts.DbTablePrefix + "ProductAttributeInts");
             builder.HasKey(x => x.Id);
         }
     }

@@ -60,7 +60,7 @@ public class AiProStoreDbContext :
     // Tenant Management
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
-
+    // Db
     public DbSet<ProductAttribute> ProductAttributes { get; set; }
     public DbSet<Inventory> Inventories { get; set; }
     public DbSet<InventoryTicket> InventoryTickets { get; set; }
