@@ -82,9 +82,15 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
             OpenIddictConstants.Permissions.Scopes.Email,
             OpenIddictConstants.Permissions.Scopes.Phone,
             OpenIddictConstants.Permissions.Scopes.Profile,
-            OpenIddictConstants.Permissions.Scopes.Roles,
-            "AiProStore"
+            OpenIddictConstants.Permissions.Scopes.Roles
         };
+        var adminScopes = new List<string>();
+        adminScopes.AddRange(commonScopes);
+        adminScopes.Add("AiProStore.Admin");
+
+        var clientScopes = new List<string>();
+        clientScopes.AddRange(commonScopes);
+        clientScopes.Add("AiProStore");
 
         var configurationSection = _configuration.GetSection("OpenIddict:Applications");
 
@@ -92,7 +98,7 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
         var webAdminClientId = configurationSection["AiProStore_Admin:ClientId"];
         if (!webAdminClientId.IsNullOrWhiteSpace())
         {
-            var adminWebClientRootUrl = configurationSection["AiProStore_Admin:RootUrl"]!.EnsureEndsWith('/');
+            var adminWebClientRootUrl = configurationSection["AiProStore_Admin:RootUrl"]!.TrimEnd('/');
 
             /* AiProStore_Web client is only needed if you created a tiered
              * solution. Otherwise, you can delete this client. */
@@ -108,15 +114,15 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                     OpenIddictConstants.GrantTypes.RefreshToken,
                     OpenIddictConstants.GrantTypes.Implicit
                 },
-                scopes: commonScopes,
-                redirectUri: $"{adminWebClientRootUrl}signin-oidc",
+                scopes: adminScopes,
+                redirectUri: adminWebClientRootUrl,
                 clientUri: adminWebClientRootUrl,
-                postLogoutRedirectUri: $"{adminWebClientRootUrl}signout-callback-oidc"
-            );
+                postLogoutRedirectUri: adminWebClientRootUrl
+                );
         }
 
         //Web client
-        var webClientId = configurationSection["TeduEcommerce_Web:ClientId"];
+        var webClientId = configurationSection["AiProStore_Web:ClientId"];
         if (!webClientId.IsNullOrWhiteSpace())
         {
             var webClientRootUrl = configurationSection["AiProStore_Web:RootUrl"]!.EnsureEndsWith('/');
@@ -138,15 +144,39 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
                 clientUri: webClientRootUrl,
                 postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc"
             );
+
+        }
+
+        // Swagger Client
+        var swaggerClientId = configurationSection["AiProStore_Admin_Swagger:ClientId"];
+        if (!swaggerClientId.IsNullOrWhiteSpace())
+        {
+            var swaggerRootUrl = configurationSection["AiProStore_Admin_Swagger:RootUrl"]!.TrimEnd('/');
+            await CreateApplicationAsync(
+                name: swaggerClientId!,
+                type: OpenIddictConstants.ClientTypes.Public,
+                consentType: OpenIddictConstants.ConsentTypes.Implicit,
+                displayName: "Swagger Admin Application",
+                secret: null!,
+                grantTypes: new List<string>
+                {
+                    OpenIddictConstants.GrantTypes.AuthorizationCode,
+                },
+                scopes: adminScopes,
+                redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
+                clientUri: swaggerRootUrl
+            );
         }
     }
+
+
 
     private async Task CreateApplicationAsync(
         [NotNull] string name,
         [NotNull] string type,
         [NotNull] string consentType,
         string displayName,
-        string? secret,
+        string secret,
         List<string> grantTypes,
         List<string> scopes,
         string? clientUri = null,

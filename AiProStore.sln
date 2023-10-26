@@ -47,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{038B06B2-DEED-4A22-A903-2F818A0C6730}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "identity", "identity", "{5F49F7BC-786F-4298-9B8E-A9CB53B452EE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{5F49F7BC-786F-4298-9B8E-A9CB53B452EE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiProStore.Admin.Application", "src\AiProStore.Admin.Application\AiProStore.Admin.Application.csproj", "{4A28ABE2-1E9C-4D6B-916F-9400598605D5}"
 EndProject

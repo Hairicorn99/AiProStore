@@ -132,6 +132,7 @@ public class AiProStoreAuthServerModule : AbpModule
         context.Services.AddSingleton<IDistributedLockProvider>(sp =>
         {
             var connection = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]!);
+            
             return new RedisDistributedSynchronizationProvider(connection.GetDatabase());
         });
 
