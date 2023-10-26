@@ -34,6 +34,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.VirtualFileSystem;
+using AiProStore.Admin;
 
 namespace AiProStore;
 
@@ -56,7 +57,7 @@ public class AiProStoreAuthServerModule : AbpModule
         {
             builder.AddValidation(options =>
             {
-                options.AddAudiences("AiProStore");
+                options.AddAudiences("AiProStore", "AiProStore.Admin");
                 options.UseLocalServer();
                 options.UseAspNetCore();
             });
@@ -125,8 +126,9 @@ public class AiProStoreAuthServerModule : AbpModule
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("AiProStore");
         if (!hostingEnvironment.IsDevelopment())
         {
-            var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]!);
+            var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "AiProStore-Protection-Keys");
+
         }
 
         context.Services.AddSingleton<IDistributedLockProvider>(sp =>

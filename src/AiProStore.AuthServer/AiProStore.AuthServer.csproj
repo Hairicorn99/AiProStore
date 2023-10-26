@@ -50,6 +50,7 @@
     <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="7.4.0" />
     <PackageReference Include="Volo.Abp.Account.Application" Version="7.4.0" />
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="7.4.0" />
+    <ProjectReference Include="..\AiProStore.Admin.HttpApi\AiProStore.Admin.HttpApi.csproj" />
     <ProjectReference Include="..\AiProStore.EntityFrameworkCore\AiProStore.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

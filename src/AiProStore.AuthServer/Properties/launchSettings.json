@@ -1,12 +1,13 @@
 {
   "iisSettings": {
-    "windowsAuthentication": false, 
+    "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "https://localhost:44374",
       "sslPort": 44374
     }
   },
+  "profiles": {
     "AiProStore.AuthServer": {
       "commandName": "Project",
       "launchBrowser": true,

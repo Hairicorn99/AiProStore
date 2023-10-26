@@ -7,13 +7,15 @@
       "sslPort": 44379
     }
   },
-      "AiProStore.HttpApi.Host": {
-        "commandName": "Project",
-        "launchBrowser": true,
-        "applicationUrl": "https://localhost:5001",
-        "environmentVariables": {
-          "ASPNETCORE_ENVIRONMENT": "Development"
-        }
+  "profiles": {
+    "AiProStore.HttpApi.Host": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
+  }
+}
   
